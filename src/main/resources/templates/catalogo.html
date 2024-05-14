@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringToys - Catálogo de Brinquedos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navComponentshtml">
+   
+</div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Categories -->
+        <section class="container">
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h2 class="section-title">Categorias de Brinquedos</h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                     <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=boneco">
+                        <img src="../imgs/b.jpg" class="card-img-top" alt="Bonecos">
+                        <div class="card-body">
+                            <h5 class="card-title">Bonecos</h5>
+                            <p class="card-text">Veja nossa coleção de bonecos incríveis!</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                    <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=carrinho">
+                        <img src="../imgs/c.jpg" class="card-img-top" alt="Carrinhos">
+                        <div class="card-body">
+                            <h5 class="card-title">Carrinhos</h5>
+                            <p class="card-text">Confira nossa seleção de carrinhos velozes!</p>
+                        </div>
+                         </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                    <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=bola">
+                        <img src="../imgs/bola.jpg" class="card-img-top" alt="Bolas">
+                        <div class="card-body">
+                            <h5 class="card-title">Bolas</h5>
+                            <p class="card-text">Diversão garantida com nossas bolas coloridas!</p>
+                        </div>
+                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="footerComponentshtml"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="" th:src="@{javascript/script.js}"></script>
+    <script src="" th:src="@{javascript/Componentes.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringToys - Incluir Novo Brinquedo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navComponentshtml">
+   
+</div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Include Section -->
+        <section class="container">
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h2 class="section-title">Incluir Novo Brinquedo</h2>
+                    <form action="../ServletBrinquedo" method="get" > <!-- enctype="multipart/form-data" -->
+                    <input type="hidden" name="cmd" value="incluir"> 
+                        <div class="form-group">
+                            <label for="codigo">Código</label>
+                            <input type="text" class="form-control" id="codigo" name="txtcodigo" placeholder="Código">
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">nome</label>
+                            <input type="text" class="form-control" name="txtnome" id="nome" placeholder="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" class="form-control" name="txtdescricao" id="descricao" placeholder="Descrição">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" aria-label="Default select example" name="cmbcategoria"> 
+								<option selected>Categoria do brinquedo</option>
+								<option>boneco</option>
+								<option>carrinho</option>
+								<option>bola</option>
+							</select>
+                        </div>
+                        <div class="form-group">
+                            <label for="valor">Valor</label>
+                            <input type="text" class="form-control" id="valor" name="txtvalor" placeholder="Valor">
+                        </div>
+                        <div class="form-group">
+                            <label for="imagem">Imagem</label>
+                            <input type="text" class="form-control-file"  name="imgbrinquedo" id="imagem"><!--   class="form-control-file"-->
+                        </div>
+                      
+                        <div class="form-group">
+                            <label for="detalhes">Detalhes</label>
+                            <textarea class="form-control" id="detalhes" rows="3" name="txtdetalhes" placeholder="Detalhes"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="marca">Marca</label>
+                            <input type="text" class="form-control" id="marca" name="txtmarca" placeholder="Marca">
+                        </div> 
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="footerComponentshtml"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="" th:src="@{javascript/Componentes.js}"></script>
+</body>
+
+</html>

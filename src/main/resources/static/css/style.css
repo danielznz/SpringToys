@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+}
+
+.navbar-brand {
+    margin-right: auto;
+}
+
+.nav-link {
+    color: inherit;
+}
+
+.main-content {
+    padding-top: 5px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.card {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.divider {
+    height: 1px;
+    margin-bottom: 20px;
+}
+
+.light-theme {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-theme .navbar {
+    background-color: #a77aff;
+}
+
+.light-theme .nav-link {
+    color: inherit;
+}
+
+.light-theme .card {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-theme .card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.light-theme .footer {
+    background-color: #a77aff;
+    color: #fff;
+}
+
+.dark-theme {
+    background-color: #121212;
+    color: #fff;
+}
+
+.dark-theme .navbar {
+    background-color: #333;
+}
+
+.dark-theme .nav-link {
+    color: #fff;
+}
+
+.dark-theme .card {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme .card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dark-theme .footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-price {
+    font-size: 24px;
+    color: #ff6600;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.contact-info li i {
+    margin-right: 10px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    color: #6c757d;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
