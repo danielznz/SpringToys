@@ -1,114 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpringToys - Loja de Brinquedos</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/style.css}" >
+    <title>SpringToys</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="light-theme">
-
-    <!-- Navbar -->
-    <div class="navComponents">
-   
-</div>
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Featured Toys -->
-        <section class="container">
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <h2 class="section-title">Brinquedos em Destaque</h2>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    	<a th:href="@{'/toy/29'}">
-                        <img src="" th:src="@{imgs/1.jpg}" class="card-img-top" alt="Brinquedo 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Brinquedo hotwheels</h5>
-                            <p class="card-text">Descrição do Brinquedo hotwheels.</p>
-                            <p class="card-text">R$ 199,99</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a th:href="@{'/toy/30'}">
-                        <img src="imgs/2.jpg" class="card-img-top" alt="Brinquedo 2">
-                        <div class="card-body">
-                            <h5 class="card-title">io-io</h5>
-                            <p class="card-text">Descrição do Io-IO</p>
-                            <p class="card-text">R$ 24,99</p>
-                        </div>
-                         </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                     <a th:href="@{'/toy/31'}">
-                        <img src="imgs/3.jpg" class="card-img-top" alt="Brinquedo 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Max steeal</h5>
-                            <p class="card-text">Descrição do Max steeal.</p>
-                            <p class="card-text">R$ 29,99</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a th:href="@{'/toy/32'}">
-                        <img src="imgs/4.jpg" class="card-img-top" alt="Brinquedo 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Barbie</h5>
-                            <p class="card-text">Descrição do Barbie.</p>
-                            <p class="card-text">R$ 34,99</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a th:href="@{'/toy/33'}">
-                        <img src="imgs/5.jpg" class="card-img-top" alt="Brinquedo 5">
-                        <div class="card-body">
-                            <h5 class="card-title">Loly Pop</h5>
-                            <p class="card-text">Descrição do Loly Pop.</p>
-                            <p class="card-text">R$ 39,99</p>
-                        </div>
-                    </a>
-                    </div>
-                    
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a th:href="@{'/toy/34'}">
-                        <img src="imgs/6.jpg" class="card-img-top" alt="Brinquedo 6">
-                        <div class="card-body">
-                            <h5 class="card-title">Baby aLife</h5>
-                            <p class="card-text">Descrição do Baby aLife</p>
-                            <p class="card-text">R$ 44,99</p>
-                        </div>
-                        </a>
-                    </div>
-                </div>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="login.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="welcome-section">
+            <div class="banner-container">
+                <img src="imgs/banner.png" alt="Bem-vindo à SpringToys" class="welcome-image">
+            </div>
+        </section>
+        
+        <section class="featured-toys">
+            <h2><i class="fa fa-star"></i> Brinquedos em Destaque</h2>
+            <div class="produto-card">
+                <img src="imgs/1.jpg" alt="Brinquedo hotwheels">
+                <h3>Brinquedo Hotwheels</h3>
+                <p>Descrição do Brinquedo Hotwheels.</p>
+                <p>R$ 199,99</p>
+            </div>
+        </section>
+        <section class="promo-toys">
+            <h2><i class="fa fa-tags"></i> Brinquedos em Promoção</h2>
+            <div class="produto-card">
+                <img src="imgs/1.jpg" alt="Brinquedo hotwheels">
+                <h3>Brinquedo Hotwheels</h3>
+                <p>Descrição do Brinquedo Hotwheels.</p>
+                <p>R$ 199,99</p>
             </div>
         </section>
     </main>
-
-    <div class="footerComponents"></div>
-    
-    
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="" th:src="@{javascript/script.js}"></script>
-    <script src="" th:src="@{javascript/Componentes.js}"></script>
-
+    <footer>
+        <div class="footer-content">
+            <p>SpringToys é uma loja de brinquedos que oferece uma ampla variedade de produtos para crianças de todas as idades.</p>
+            <div class="contact-info">
+                <p><strong>Informações de Contato</strong></p>
+                <p><i class="fa fa-map-marker"></i> Endereço: Rua das Brincadeiras, 123 - Centro</p>
+                <p><i class="fa fa-phone"></i> Telefone: (11) 1234-5678</p>
+                <p><i class="fa fa-envelope"></i> Email: contato@springtoys.com</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
-
 </html>

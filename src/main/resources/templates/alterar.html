@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Brinquedo - SpringToys</title>
+    <title>Alterar Brinquedo - SpringToys</title>
     <link rel="stylesheet" href="incluir.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -28,11 +28,18 @@
     </header>
     <main>
         <section class="admin-section">
-            <h1>Adicionar Brinquedo</h1>
-            <form id="add-toy-form" class="admin-form">
+            <h1>Alterar Brinquedo</h1>
+            <form id="search-toy-form" class="admin-form">
+                <div class="form-group">
+                    <label for="search-codigo">Código do Brinquedo:</label>
+                    <input type="text" id="search-codigo" name="search-codigo" required>
+                </div>
+                <button type="button" id="search-button" class="save-button">Buscar</button>
+            </form>
+            <form id="edit-toy-form" class="admin-form" style="display:none;">
                 <div class="form-group">
                     <label for="codigo">Código:</label>
-                    <input type="text" id="codigo" name="codigo" required>
+                    <input type="text" id="codigo" name="codigo" readonly>
                 </div>
                 <div class="form-group">
                     <label for="nome">Nome:</label>
@@ -52,7 +59,7 @@
                 </div>
                 <div class="form-group">
                     <label for="imagem">Imagem:</label>
-                    <input type="file" id="imagem" name="imagem" accept="image/*" required>
+                    <input type="file" id="imagem" name="imagem" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="detalhes">Detalhes:</label>
@@ -63,6 +70,7 @@
                     <input type="text" id="marca" name="marca" required>
                 </div>
                 <button type="submit" class="save-button">Salvar</button>
+                <button type="button" id="delete-button" class="save-button" style="background-color: red;">Excluir</button>
             </form>
         </section>
     </main>

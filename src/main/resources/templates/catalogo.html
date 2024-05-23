@@ -1,73 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpringToys - Catálogo de Brinquedos</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Catálogo de Brinquedos - SpringToys</title>
+    <link rel="stylesheet" href="catalogo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <div class="navComponentshtml">
-   
-</div>
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Categories -->
-        <section class="container">
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <h2 class="section-title">Categorias de Brinquedos</h2>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                     <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=boneco">
-                        <img src="../imgs/b.jpg" class="card-img-top" alt="Bonecos">
-                        <div class="card-body">
-                            <h5 class="card-title">Bonecos</h5>
-                            <p class="card-text">Veja nossa coleção de bonecos incríveis!</p>
-                        </div>
-                        </a>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="login.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="catalogo-section">
+            <h1>Catálogo de Brinquedos</h1>
+            <div class="catalogo-container">
+                <div class="categoria">
+                    <h2>Bonecos</h2>
+                    <div class="produto-card">
+                        <img src="imgs/3.jpg" alt="Boneco">
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=carrinho">
-                        <img src="../imgs/c.jpg" class="card-img-top" alt="Carrinhos">
-                        <div class="card-body">
-                            <h5 class="card-title">Carrinhos</h5>
-                            <p class="card-text">Confira nossa seleção de carrinhos velozes!</p>
-                        </div>
-                         </a>
+                <div class="categoria">
+                    <h2>Carrinhos</h2>
+                    <div class="produto-card">
+                        <img src="imgs/c.jpg" alt="Carrinho">
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                    <a href="../ServletBrinquedo?cmd=listarcat&cmbcategoria=bola">
-                        <img src="../imgs/bola.jpg" class="card-img-top" alt="Bolas">
-                        <div class="card-body">
-                            <h5 class="card-title">Bolas</h5>
-                            <p class="card-text">Diversão garantida com nossas bolas coloridas!</p>
-                        </div>
-                         </a>
+                <div class="categoria">
+                    <h2>Bolas</h2>
+                    <div class="produto-card">
+                        <img src="imgs/bola.jpg" alt="Jogo de Tabuleiro">
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    
-    <div class="footerComponentshtml"></div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="" th:src="@{javascript/script.js}"></script>
-    <script src="" th:src="@{javascript/Componentes.js}"></script>
+    <footer>
+        <div class="footer-content">
+            <p>SpringToys é uma loja de brinquedos que oferece uma ampla variedade de produtos para crianças de todas as idades.</p>
+            <div class="contact-info">
+                <p><strong>Informações de Contato</strong></p>
+                <p><i class="fa fa-map-marker"></i> Endereço: Rua das Brincadeiras, 123 - Centro</p>
+                <p><i class="fa fa-phone"></i> Telefone: (11) 1234-5678</p>
+                <p><i class="fa fa-envelope"></i> Email: contato@springtoys.com</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
-
 </html>

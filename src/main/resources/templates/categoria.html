@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SpringToys</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Adicionar Nova Categoria - SpringToys</title>
+    <link rel="stylesheet" href="categoria.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <header>
@@ -19,7 +18,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
                 <li><a href="equipe.html">Sobre a Equipe</a></li>
-                <li><a href="login.html">Administração</a></li>
+                <li><a href="admin.html">Administração</a></li>
             </ul>
             <button id="theme-toggle">
                 <img src="imgs/clima.png" alt="Mudar Tema">
@@ -27,18 +26,21 @@
         </nav>
     </header>
     <main>
-        <section class="login-section">
-            <h1>Administração</h1>
-            <form id="login-form" action="admin.html" method="POST">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
+        <section class="admin-section">
+            <h1>Adicionar Nova Categoria</h1>
+            <form id="add-category-form">
+                <div class="form-group">
+                    <label for="name">Nome da Categoria:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagem da Categoria:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <button type="submit">Adicionar Categoria</button>
             </form>
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </body>
 </html>
