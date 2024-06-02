@@ -1,0 +1,190 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --header-background: #ffeb3b;
+    --footer-background:  #ffeb3b;
+    --button-background: #f0c14b;
+    --button-text-color: #333333;
+    --card-background: #ffffff;
+    --card-hover-background: #ffe0b2;
+    --primary-color: #ff5722;
+    --secondary-color: #ff9800;
+    --hover-color: #ffd54f;
+}
+
+body.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --header-background: #555555;
+    --footer-background: #444444;
+    --button-background: #ff9800;
+    --button-text-color: #ffffff;
+    --card-background: #444444;
+    --card-hover-background: #555555;
+    --primary-color: #ff9800;
+    --secondary-color: #ff5722;
+    --hover-color: #ff7043;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav .nav-links li a:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button {
+    background-color: var(--button-background);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button img {
+    height: 25px;
+}
+
+main {
+    padding: 30px;
+}
+
+.admin-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.admin-section form .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-section form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.admin-section form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.admin-section form button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-section form button:hover {
+    background-color: var(--secondary-color);
+}
+.admin-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-card .admin-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card .admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-card .admin-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-card .admin-actions button.edit {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+}
+
+.admin-card .admin-actions button.delete {
+    background-color: var(--secondary-color);
+    color: var(--button-text-color);
+}
+
+.admin-card .admin-actions button:hover {
+    background-color: var(--hover-color);
+}
+

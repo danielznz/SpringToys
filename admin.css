@@ -1,0 +1,161 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --header-background: #ffeb3b;
+    --footer-background:  #ffeb3b;
+    --button-background: #f0c14b;
+    --button-text-color: #333333;
+    --card-background: #ffffff;
+    --card-hover-background: #ffe0b2;
+    --primary-color: #ff5722;
+    --secondary-color: #ff9800;
+    --hover-color: #ffd54f;
+}
+
+body.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --header-background: #555555;
+    --footer-background: #444444;
+    --button-background: #ff9800;
+    --button-text-color: #ffffff;
+    --card-background: #444444;
+    --card-hover-background: #555555;
+    --primary-color: #ff9800;
+    --secondary-color: #ff5722;
+    --hover-color: #ff7043;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav .nav-links li a:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button {
+    background-color: var(--button-background);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button img {
+    height: 25px;
+}
+
+main {
+    padding: 30px;
+}
+
+.admin-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.admin-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.admin-card:hover {
+    background-color: var(--card-hover-background);
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: var(--footer-background);
+    color: var(--text-color);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer .contact-info p {
+    margin: 10px 0;
+}
+
+footer .contact-info i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}

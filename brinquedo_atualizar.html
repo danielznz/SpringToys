@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Admin - SpringToys</title>
+    <link rel="stylesheet" href="gerenciar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section" id="admin-section">
+            <h1>atualizar brinquedo</h1>
+            
+        </section>
+    </main>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const brinquedoId = urlParams.get('brinquedoId');
+            const divform = document.getElementById('admin-section');
+            console.log(brinquedoId);
+
+            fetch(`http://localhost:8080/api/brinquedos/${brinquedoId}`)
+                .then(response => response.json())
+                .then(brinquedo => {
+                    const form = document.createElement('div');
+                    console.log(brinquedo);
+                    form.innerHTML = `
+                        <form id="add-admin-form">
+                            <label for="Id_adm">ID:</label>
+                            <input type="text" id="Id_adm" name="Id_adm" value="${brinquedo.codBrinquedo}">
+                            <label for="codigo">Código:</label>
+                            <input type="text" id="codigo" name="codigo" value="${brinquedo.codigo}">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" value="${brinquedo.nome}">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" id="descricao" name="descricao" value="${brinquedo.descricao}">
+                            <label for="valor">Valor:</label>
+                            <input type="text" id="valor" name="valor" value="${brinquedo.valor}">
+                            <label for="imagem">Imagem:</label>
+                            <input type="text" id="imagem" name="imagem" value="${brinquedo.imagem}">
+                            <img src="${brinquedo.imagem}" alt="${brinquedo.imagem}" width="80px" height="60px" style="padding-left:40%">
+                            <label for="detalhes">Detalhes:</label>
+                            <input type="text" id="detalhes" name="detalhes" value="${brinquedo.detalhes}">
+                            <label for="marca">Marca:</label>
+                            <input type="text" id="marca" name="marca" value="${brinquedo.marca}">
+                            <label for="categoria">Categoria:</label>
+                            <select id="categoria" name="categoria" multiple>
+                            </select>
+                            <label for="destaque">Destaque:</label>
+                            <input type="Number" id="destaque" name="destaque" min="0" max="1" value="${brinquedo.destaque}">
+                            <button type="submit">Atualizar brinquedo</button>
+                        </form>
+                    `;
+                    divform.appendChild(form);
+
+                    // Carregar as categorias após criar o formulário
+                    fetch('http://localhost:8080/api/categorias')
+                        .then(response => response.json())
+                        .then(categorias => {
+                            console.log(categorias);
+                            if (categorias.length === 0) {
+                                Swal.fire({
+                                    title: "Erro",
+                                    text: "Não existe categoria! Crie uma para utilizar.",
+                                    icon: "error",
+                                    confirmButtonColor: "#d33"
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "categoria.html";
+                                    }
+                                });
+                            } else {
+                                const categoriaSelect = document.getElementById('categoria');
+                                categorias.forEach(categoria => {
+                                    const option = document.createElement('option');
+                                    option.value = categoria.codCategoria;
+                                    option.text = categoria.categoria;
+                                    // Verificar se a categoria está selecionada para este brinquedo
+                                    if (brinquedo.categorias.some(cat => cat.codCategoria === categoria.codCategoria)) {
+                                        option.selected = true;
+                                    }
+                                    categoriaSelect.appendChild(option);
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching categorias:', error);
+                        });
+
+                    // Função de cadastro
+                    const adminForm = document.getElementById('add-admin-form');
+                    adminForm.addEventListener('submit', function(event) {
+                        event.preventDefault();
+                
+                        const codigo = document.getElementById('codigo').value;
+                        const nome = document.getElementById('nome').value;
+                        const descricao = document.getElementById('descricao').value;
+                        const valor = document.getElementById('valor').value;
+                        const imagem = document.getElementById('imagem').value;
+                        const detalhes = document.getElementById('detalhes').value;
+                        const marca = document.getElementById('marca').value;
+                        const destaque = document.getElementById('destaque').value;
+                        const categorias = Array.from(document.getElementById('categoria').selectedOptions).map(option => option.value);
+                        console.log(categorias)
+                        
+                        fetch(`http://localhost:8080/api/brinquedos/${brinquedoId}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ codigo, nome, descricao, valor, imagem, detalhes, marca, destaque })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                categorias.forEach(categorias=> {
+                                    fetch(`http://localhost:8080/api/brinquedos/${brinquedoId}/categorias/${categorias}`, {
+                                        method: 'PUT',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        }
+                                    })
+                                    .then(response => {
+                                        if (response.ok) {
+                                            return response.json();
+                                        } else {
+                                            throw new Error('Erro ao atualizar categoria');
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error updating categoria:', error);
+                                    });
+                                });
+                                return response.json();
+                            } else {
+                                throw new Error('Erro ao atualizar administrador');
+                            }
+                        })
+                        .then(data => {
+                            Swal.fire({
+                                title: "Brinquedo atualizado com sucesso!",
+                                text: "Todos os dados do brinquedo foram alterados",
+                                icon: "success",
+                                confirmButtonColor: "#3085d6"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "alterar.html";
+                                }
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error updating admin:', error);
+                        });
+                    });
+                    
+                })
+                .catch(error => {
+                    console.error('Error fetching brinquedo:', error);
+                });
+
+                
+
+        });
+
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --link-color: #000000; /* Black for normal links in light theme */
+    --visited-link-color: #8B4513; /* Dark orange for visited links in light theme */
+    --header-background: #ffeb3b;
+    --footer-background:  #ffeb3b;
+    --button-background: #f0c14b;
+    --button-text-color: #333333;
+    --card-background: #ffffff;
+    --card-hover-background: #ffe0b2;
+    --primary-color: #ff5722;
+    --secondary-color: #ff9800;
+    --hover-color: #ffd54f;
+}
+
+body.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --link-color: #ffffff; /* White for normal links in dark theme */
+    --visited-link-color: #FFA07A; /* Light salmon for visited links in dark theme */
+    --header-background: #555555;
+    --footer-background: #444444;
+    --button-background: #ff9800;
+    --button-text-color: #ffffff;
+    --card-background: #444444;
+    --card-hover-background: #555555;
+    --primary-color: #ff9800;
+    --secondary-color: #ff5722;
+    --hover-color: #ff7043;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav .nav-links li a:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button {
+    background-color: var(--button-background);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: var(--hover-color);
+}
+
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --link-color: #000000; /* Black for normal links in light theme */
+    --visited-link-color: #8B4513; /* Dark orange for visited links in light theme */
+    --header-background: #ffeb3b;
+    --footer-background:  #ffeb3b;
+    --button-background: #f0c14b;
+    --button-text-color: #333333;
+    --card-background: #ffffff;
+    --card-hover-background: #ffe0b2;
+    --primary-color: #ff5722;
+    --secondary-color: #ff9800;
+    --hover-color: #ffd54f;
+}
+
+body.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --link-color: #ffffff; /* White for normal links in dark theme */
+    --visited-link-color: #FFA07A; /* Light salmon for visited links in dark theme */
+    --header-background: #555555;
+    --footer-background: #444444;
+    --button-background: #ff9800;
+    --button-text-color: #ffffff;
+    --card-background: #444444;
+    --card-hover-background: #555555;
+    --primary-color: #ff9800;
+    --secondary-color: #ff5722;
+    --hover-color: #ff7043;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 15px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav .nav-links li a:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button {
+    background-color: var(--button-background);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: var(--hover-color);
+}
+
+header nav button img {
+    height: 25px;
+}
+
+main {
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+.welcome-section {
+    text-align: center;
+}
+
+.banner-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.welcome-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.produto-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    text-align: center;
+    width: 220px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.produto-card:hover {
+    background-color: var(--card-hover-background);
+    transform: translateY(-5px);
+}
+
+.produto-card img {
+    max-width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.toy-details-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.toy-details-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.toy-card-large {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.toy-image-large {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toy-info-large {
+    flex: 1;
+}
+
+.toy-info-large h2 {
+    margin-bottom: 10px;
+}
+
+.toy-info-large p {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: var(--footer-background);
+    color: var(--text-color);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer .contact-info p {
+    margin: 10px 0;
+}
+
+footer .contact-info i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* Add link styles */
+a {
+    text-decoration: none;
+    color: var(--link-color); /* Use link color variable */
+}
+
+a:visited {
+    color: var(--visited-link-color); /* Use visited link color variable */
+}
+
+a:hover {
+    color: var(--primary-color); /* Use primary color for hover */
+}

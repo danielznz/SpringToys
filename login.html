@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SpringToys</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="login.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="login-section">
+            <h1>Administração</h1>
+            <form id="login-form" action="admin.html" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const fetchUsuarios = () => {
+                fetch(`http://localhost:8080/api/usuarios`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        let loginSuccess = false;
+                        data.forEach(usuario => {
+                            if (email === usuario.email && password === usuario.senha) {
+                                loginSuccess = true;
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Login bem-sucedido',
+                                    text: 'Redirecionando para a página de administração...',
+                                    timer: 2000,
+                                    timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.href = 'admin.html';
+                                    }
+                                });
+                            }
+                        });
+                        if (!loginSuccess) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro de Login',
+                                text: 'Email ou senha incorretos',
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching usuarios:', error);
+                    });
+            };
+
+            fetchUsuarios();
+        
+            // Validação do login
+        });
+    </script>
+</body>
+</html>

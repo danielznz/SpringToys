@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Brinquedo - SpringToys</title>
+    <link rel="stylesheet" href="incluir.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section">
+            <h1>Adicionar Brinquedo</h1>
+            <form id="add-toy-form" class="admin-form">
+                <div class="form-group">
+                    <label for="codigo">Código:</label>
+                    <input type="text" id="codigo" name="codigo" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" id="valor" name="valor" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem:</label>
+                    <input type="Text" id="imagem" name="imagem" required>
+                </div>
+                <div class="form-group">
+                    <label for="detalhes">Detalhes:</label>
+                    <textarea id="detalhes" name="detalhes" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" required>
+                </div>
+                <div class="form-group"></div>
+                    <select id="categoria" name="categoria" multiple>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Salvar</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:8080/api/categorias')
+                .then(response => response.json())
+                .then(categorias => {
+                    console.log(categorias);
+                    if (categorias.length === 0) {
+                        Swal.fire({
+                            title: "Erro",
+                            text: "Não existe categoria! Crie uma para utilizar.",
+                            icon: "error",
+                            confirmButtonColor: "#d33"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "categoria.html";
+                            }
+                        });
+                    } else {
+                        const categoriaSelect = document.getElementById('categoria');
+                        categorias.forEach(categoria => {
+                            const option = document.createElement('option');
+                            option.value = categoria.codCategoria;
+                            option.text = categoria.categoria;
+                            categoriaSelect.appendChild(option);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching categorias:', error);
+                });
+        
+            document.getElementById('add-toy-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+        
+                const codigo = document.getElementById('codigo').value;
+                const nome = document.getElementById('nome').value;
+                const descricao = document.getElementById('descricao').value;
+                const valor = document.getElementById('valor').value;
+                const imagem = document.getElementById('imagem').value;
+                const detalhes = document.getElementById('detalhes').value;
+                const marca = document.getElementById('marca').value;
+                const categorias = Array.from(document.getElementById('categoria').selectedOptions).map(option => option.value);
+        
+                fetch('http://localhost:8080/api/brinquedos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ codigo, nome, descricao, valor, imagem, detalhes, marca })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Erro ao adicionar brinquedo');
+                    }
+                })
+                .then(data => {
+                    const fetches = categorias.map(categoria => {
+                        return fetch(`http://localhost:8080/api/brinquedos/${data.codBrinquedo}/categorias/${categoria}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erro ao atualizar categoria');
+                            }
+                        });
+                    });
+        
+                    return Promise.all(fetches).then(() => data);
+                })
+                .then(data => {
+                    Swal.fire(
+                        'Sucesso',
+                        'Brinquedo adicionado com sucesso!',
+                        'success'
+                    );
+        
+                    // Limpar o formulário
+                    document.getElementById('add-toy-form').reset();
+                })
+                .catch(error => {
+                    console.error('Erro ao adicionar brinquedo:', error);
+                    Swal.fire(
+                        'Erro',
+                        'Não foi possível adicionar o brinquedo.',
+                        'error'
+                    );
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>

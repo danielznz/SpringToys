@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Brinquedos - SpringToys</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="login.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <header>
+    <nav>
+        <ul class="nav-links">
+            <h3>Filtragens:</h3>
+            <li><a href="filtrar_nome.html">Nome</a></li>
+            <li><a href="filtrar_marca.html">Marca</a></li>
+            <li><a href="filtrar_valor.html">Valor</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <section class="catalogo-section">
+            <h1>Categorias de Brinquedos</h1>
+            <div id="categorias-container" class="catalogo-container">
+                <!-- Categorias serão adicionadas aqui pelo JavaScript -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>SpringToys é uma loja de brinquedos que oferece uma ampla variedade de produtos para crianças de todas as idades.</p>
+            <div class="contact-info">
+                <p><strong>Informações de Contato</strong></p>
+                <p><i class="fa fa-map-marker"></i> Endereço: Rua das Brincadeiras, 123 - Centro</p>
+                <p><i class="fa fa-phone"></i> Telefone: (11) 1234-5678</p>
+                <p><i class="fa fa-envelope"></i> Email: contato@springtoys.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoriasContainer = document.getElementById('categorias-container');
+
+            const fetchCategorias = () => {
+                fetch('http://localhost:8080/api/categorias')
+                    .then(response => response.json())
+                    .then(data => {
+                        categoriasContainer.innerHTML = '';
+                        data.forEach(categoria => {
+                            console.log(categoria);
+                            const categoriaDiv = document.createElement('div');
+                            categoriaDiv.className = 'produto-card';
+                            categoriaDiv.innerHTML = `
+                            <a href="categoria_detalhes.html?categoriaId=${categoria.codCategoria}&categoriaNome=${categoria.categoria}">
+                                <img src="${categoria.imagem}" alt="${categoria.categoria}">
+                                <h3>${categoria.categoria}</h3>
+                            </a>
+                            `;
+                            categoriasContainer.appendChild(categoriaDiv);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching categorias:', error);
+                    });
+            };
+
+            // Fetch todas as categorias ao carregar a página
+            fetchCategorias();
+        });
+    </script>
+</body>
+</html>

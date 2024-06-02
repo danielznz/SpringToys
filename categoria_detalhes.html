@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Categoria - SpringToys</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="login.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="catalogo-section">
+            <h1 id="nome_Categoria"> </h1>
+            <div id="produtos-container" class="catalogo-container">
+                <!-- Produtos serão exibidos aqui -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>SpringToys é uma loja de brinquedos que oferece uma ampla variedade de produtos para crianças de todas as idades.</p>
+            <div class="contact-info">
+                <p><strong>Informações de Contato</strong></p>
+                <p><i class="fa fa-map-marker"></i> Endereço: Rua das Brincadeiras, 123 - Centro</p>
+                <p><i class="fa fa-phone"></i> Telefone: (11) 1234-5678</p>
+                <p><i class="fa fa-envelope"></i> Email: contato@springtoys.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoriaId = urlParams.get('categoriaId');
+            const categorianome = urlParams.get('categoriaNome');
+            console.log(categorianome);
+            const produtosContainer = document.getElementById('produtos-container');
+            const nome_categoria = document.getElementById('nome_Categoria');
+            console.log(nome_Categoria);
+            nome_categoria.innerHTML=`Brinquedos:  ${categorianome}`;
+
+            const fetchProdutos = () => {
+                fetch(`http://localhost:8080/api/categorias/${categoriaId}/brinquedos`)
+                    .then(response => response.json())
+                    .then(data => {
+                        produtosContainer.innerHTML = '';
+                        data.forEach(brinquedo => {
+                            const card = document.createElement('div');
+                            card.className = 'produto-card';
+                            card.innerHTML = `
+                            <a href="detalhes_brinquedo.html?brinquedoId=${brinquedo.codBrinquedo}">
+                                <img src="${brinquedo.imagem}" alt="${brinquedo.nome}">
+                                <h3>${brinquedo.nome}</h3>
+                                <p>${brinquedo.descricao}</p>
+                                <p>R$ ${brinquedo.valor}</p>
+                            </a>
+                            `;
+                            produtosContainer.appendChild(card);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching brinquedos:', error);
+                    });
+            };
+
+            // Fetch brinquedos da categoria ao carregar a página
+            fetchProdutos();
+        });
+    </script>
+</body>
+</html>
