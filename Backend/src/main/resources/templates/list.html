@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Alunos</title>
+</head>
+<body>
+    <h3>Lista de Alunos</h3>
+		<a th:href="@{/alunos/new}" >Novo</a>
+		<table border="1">
+			<tr>
+				<th>1D</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Data Nascimento</th>
+				<th>Endereço</th>
+				<th>Periodo</th>
+				<th>controle</th>
+			</tr>
+			<tr th:each="aluno : ${alunos}">
+			<td th:text="${aluno.ra}"></td>
+			<td><a th:href="@{/alunos/{id} (id=${aluno.ra})}" th:text="${aluno.nome}"></a></td>
+			<td th:text="${aluno.email}"></td>
+			<td th:text="${#calendars.format (aluno.dataNascimento,'dd/MM/yyyy')}"></td>
+			
+			<td th:text="${aluno.endereco}"></td>
+			<td th:text="${aluno.periodo}"></td>
+			<td>
+				<a th:href="@{/alunos/{id} edit (id=${aluno.ra})}">editar</a> |
+				<a th:href="@{/alunos/{id}/delete (id=${aluno.ra})}">excluir</a>
+			</td>
+			<tr>
+		</table>
+
+</body>
+</html>

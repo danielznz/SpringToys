@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Brinquedo - SpringToys</title>
+    <link rel="stylesheet" href="css/incluir.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="SpringToys">
+                <span>SpringToys</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo de Brinquedos</a></li>
+                <li><a href="equipe.html">Sobre a Equipe</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+            <button id="theme-toggle">
+                <img src="imgs/clima.png" alt="Mudar Tema">
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-section">
+            <h1>Adicionar Brinquedo</h1>
+            <form id="add-toy-form" class="admin-form">
+                <div class="form-group">
+                    <label for="codigo">Código:</label>
+                    <input type="text" id="codigo" name="codigo" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" step="0.01" id="valor" name="valor" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem:</label>
+                    <input type="Text" id="imagem" name="imagem" required>
+                </div>
+                <div class="form-group">
+                    <label for="detalhes">Detalhes:</label>
+                    <textarea id="detalhes" name="detalhes" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="destaque">Destaque:</label>
+                    <input type="number" id="destaque" name="destaque" min="0" max="1" required>
+                </div>
+                <div class="form-group"></div>
+                    <label for="categoria" style="font-weight: bold;">Categoria: </label>
+                    <select id="categoria" name="categoria" multiple>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Salvar</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/incluir.js"></script>
+</body>
+</html>
