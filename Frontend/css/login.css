@@ -1,15 +1,15 @@
 :root {
-    --background-color: #f9f9f9;
-    --text-color: #333333;
-    --header-background: #ffeb3b;
-    --footer-background:  #ffeb3b;
-    --button-background: #f0c14b;
-    --button-text-color: #333333;
+    --background-color: #e9e9e9;
+    --text-color: #000000;
+    --header-background: #1A1F71;
+    --footer-background:  #1A1F71;
+    --button-background: #1A1F71;
+    --button-text-color: #ffffff;
     --card-background: #ffffff;
-    --card-hover-background: #ffe0b2;
-    --primary-color: #ff5722;
-    --secondary-color: #ff9800;
-    --hover-color: #ffd54f;
+    --card-hover-background: #fefefe;
+    --button-background: #1A1F71;
+    --secondary-color: #1A1F71;
+    --hover-color: #1A1F71;
 }
 
 body.dark-theme {
@@ -29,10 +29,23 @@ body.dark-theme {
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    font-family: "Raleway", serif;
     margin: 0;
     padding: 0;
 }
+
+.card {
+    background-color: #ffffff;
+    height: 350px;
+    width: 400px;
+    border-radius: 46px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 header {
     background-color: var(--header-background);
@@ -131,7 +144,7 @@ main {
 }
 
 #login-form button {
-    padding: 10px 15px;
+    padding: 20px 15px;
     background-color: var(--button-background);
     color: var(--button-text-color);
     border: none;

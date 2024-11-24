@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="imgs/logo.png" alt="SpringToys">
-                <span>SpringToys</span>
+                <img src="" alt="Maratona+">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -28,6 +30,7 @@
     </header>
     <main>
         <section class="login-section">
+            <div class="card">
             <h1>Administração</h1>
             <form id="login-form" action="admin.html" method="POST">
                 <label for="email">Email:</label>
@@ -35,7 +38,10 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required>
                 <button type="submit">Login</button>
+                <br>
+                <a href="#">Criar Conta</a>
             </form>
+        </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
