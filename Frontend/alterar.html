@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Brinquedo - SpringToys</title>
+    <title>Alterar Maratona - Maratona+</title>
     <link rel="stylesheet" href="css/alterar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="imgs/logo.png" alt="SpringToys">
-                <span>SpringToys</span>
+                <img src="imgs/logo-png.png" alt="Maratona+">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -28,22 +31,19 @@
     </header>
     <main>
         <section class="admin-section">
-            <h1>Alterar Brinquedo</h1>
-                <a href="incluir.html"><button type="button" id="search-button" class="save-button">criar um novo brinquedo</button></a>
+            <h1>Alterar Maratona</h1>
+                <a href="incluir.html"><button type="button" id="search-button" class="save-button">criar uma nova Maratona</button></a>
                 
                 <table id="adminList">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Código</th>
                             <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Preço</th>
-                            <th>Imagem</th>
-                            <th>Marca</th>
-                            <th>Categoria</th>
-                            <th>Destaque</th>
-                            <th>Ações</th>
+                            <th>Local</th>
+                            <th>Status</th>
+                            <th>Distancia</th>
+                            <th>Participantes</th>
+                            <th>Valor</th>
                         </tr>
                     </thead>
                     <tbody>
