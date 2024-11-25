@@ -141,7 +141,7 @@ table {
 }
 
 table thead {
-    background-color: var(--primary-color);
+    background-color: #cecece;
     color: #000000;;
 }
 

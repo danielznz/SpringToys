@@ -5,27 +5,26 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
     
 document.addEventListener('DOMContentLoaded', () => {
     // Exibe os usuários
-    const fetchBrinquedos = () => {
+    const fetchMaratonas = () => {
         fetch('http://localhost:8080/api/brinquedos')
             .then(response => response.json())
             .then(data => {
                 const adminListBody = document.querySelector('#adminList tbody');
                 adminListBody.innerHTML = '';
-                data.forEach(brinquedo => {
+                data.forEach(maratona => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${brinquedo.codBrinquedo}</td>
-                        <td>${brinquedo.codigo}</td>
-                        <td>${brinquedo.nome}</td>
-                        <td>${brinquedo.descricao}</td>
-                        <td>${brinquedo.valor}</td>
-                        <td><img src="${brinquedo.imagem}" alt="${brinquedo.imagem}" width="60px" height="40px" style="padding-left:10%"></td>
-                        <td>${brinquedo.marca}</td>
-                        <td>${fazercategorias(brinquedo.categorias)}</td>
-                        <td>${verficardestaque(brinquedo.destaque)}</td>
+                        <td>${maratona.codMaratona}</td>
+                        <td>${maratona.nome}</td>
+                        <td>${maratona.local}</td>
+                        <td>${maratona.status}</td>
+                        <td>${maratona.distancia}</td>
+                        <td>${maratona.participantes}</td>
+                        <td>${maratona.valor}</td>
+                        <td>${fazercategorias(maratona.categorias)}</td>
+                        <td>${verficardestaque(maratona.destaque)}</td>
                         <td>
-                            <a href="brinquedo_atualizar.html?brinquedoId=${brinquedo.codBrinquedo}"><button class="update">Atualizar</button></a>
-                            <button class="delete" data-id="${brinquedo.codBrinquedo}">Excluir</button>
+                            <a href="brinquedo_atualizar.html?brinquedoId=${maratona.codBrinquedo}"><button class="update">Atualizar</button></a>
                         </td>
                     `;
                     adminListBody.appendChild(row);
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           swalWithBootstrapButtons.fire({
             title: "Tem certeza?",
-            text: "seu brinquedo será apagado permanentemente",
+            text: "seu maratona será apagado permanentemente",
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "sim, deletar!",
@@ -77,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .then(response => {
                     if (response.ok) {
-                        fetchBrinquedos();
+                        fetchMaratonas();
                     } else {
                         alert('Erro ao excluir administrador');
                     }
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ) {
               swalWithBootstrapButtons.fire({
                 title: "Cancelado",
-                text: "Seu brinquedo está salvo :)",
+                text: "Seu maratona está salvo :)",
                 icon: "error"
               });
             }
@@ -103,5 +102,5 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
 
-    fetchBrinquedos();
+    fetchMaratonas();
 });
